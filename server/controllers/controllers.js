@@ -19,7 +19,7 @@ module.exports = {
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'system', content: 'You are an article writer, that generates hobbies based on user preferences' },
-          { role: 'user', content: `I have a budget of ${budget} & "${availableTime} a week. I am ${activityLevel}. Please generate me a random hobby. Start your response with just the hobby as a title, in bold. In a paragraph below, give a 3 sentence introduction of the hobby. In another paragraph, write me 3 sentences on how to get started with the hobby.  "` },
+          { role: 'user', content: `I have a budget of ${budget} & "${availableTime} a week. I am ${activityLevel}. Please generate me a random hobby. Start your response with just the hobby as a title, wrapped in * to indicate it should be bold. In a paragraph below, give a 3 sentence introduction of the hobby. In another paragraph, write me 3 sentences on how to get started with the hobby. There should be 3 line separations, please include \n for the line separations."` },
         ],
         temperature: 0.6,
         max_tokens: 200,

@@ -22,9 +22,15 @@ const Form = () => {
       setBudget("");
       setActivityLevel("");
       setAvailableTime("");
-      setResponse(response.data.result)
+      const result = response.data.result;
+      console.log('this is the entire text: ', result);
+      const paragraphs = result.split('\n\n');
+      const title = paragraphs[0];
+      const firstParagraph = paragraphs[1];
+      const secondParagraph = paragraphs[2];
+      console.log('should be an array split, 3: ', paragraphs);
 
-      console.log('is this happening')
+      setResponse({ title, firstParagraph, secondParagraph });
     })
     .catch((error) => {
       console.error("Error registering attendee:", error);
@@ -76,8 +82,10 @@ const Form = () => {
 
       {response && (
         <div>
-          <h3>Generated Hobby:</h3>
-          <p>{response}</p>
+        <h3>Generated Hobby:</h3>
+        <strong>{response.title}</strong>
+        <p>{response.firstParagraph}</p>
+        <p>{response.secondParagraph}</p>
         </div>
       )}
 
