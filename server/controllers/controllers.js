@@ -19,13 +19,16 @@ module.exports = {
 
     console.log(req.body)
     try {
-      const completion = await openai.createCompletion({
-        model: 'text-davinci-003',
-        prompt: generatePrompt(req.body.interests),
+      const completion = await openai.createChatCompletion({
+        model: 'gpt-3.5-turbo',
+        messages: [
+          { role: 'system', content: 'You are a helpful assistant that translates English to French.' },
+          { role: 'user', content: `Translate the following English text to French: "${req.body.interests}"` },
+        ],
         temperature: 0.6,
         max_tokens: 200,
       });
-      const response = completion.data.choices[0].text;
+      const response = completion.data.choices[0].message.content;
       console.log(response);
       res.json({ result: response });
     } catch (error) {
