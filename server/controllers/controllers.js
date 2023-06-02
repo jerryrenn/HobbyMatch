@@ -8,22 +8,18 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const generatePrompt = (hobby) => {
-  // Generate the prompt based on the given hobby
-  return `Tell me about a random hobby: ${hobby} in 3 sentences please`;
-};
 
 module.exports = {
 
   getHobby: async (req, res) => {
-
-    console.log(req.body)
+    console.log('getHobby initiated...');
+    const { budget, activityLevel, availableTime} = req.body;
     try {
       const completion = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: [
-          { role: 'system', content: 'You are a helpful assistant that translates English to French.' },
-          { role: 'user', content: `Translate the following English text to French: "${req.body.interests}"` },
+          { role: 'system', content: 'You are an article writer, that generates hobbies based on user preferences' },
+          { role: 'user', content: `I have a budget of ${budget} & "${availableTime} a week. I am ${activityLevel}. Please generate me a random hobby. Start your response with just the hobby as a title, in bold. In a paragraph below, give a 3 sentence introduction of the hobby. In another paragraph, write me 3 sentences on how to get started with the hobby.  "` },
         ],
         temperature: 0.6,
         max_tokens: 200,
