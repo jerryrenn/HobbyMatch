@@ -30,10 +30,9 @@ module.exports = {
         temperature: 0.8,
         max_tokens: 200,
       });
-      console.log('number of response: ', messages.length)
       const response = completion.data.choices[0].message.content;
-      console.log(response);
       res.json({ result: response });
+      
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'An error occurred' });

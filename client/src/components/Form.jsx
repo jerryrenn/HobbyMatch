@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 const Form = () => {
 
+  const [isLoading, setIsLoading] = useState(false);
   const [budget, setBudget] = useState("");
   const [activityLevel, setActivityLevel] = useState("");
   const [availableTime, setAvailableTime] = useState("");
@@ -11,8 +12,10 @@ const Form = () => {
   const [type, setType] = useState("");
   const [response, setResponse] = useState("");
 
+
+
   const generateHobby = (userPreferences, message) => {
-    axios.post("http://localhost:3000/hobby", { ...userPreferences, message })
+    return axios.post("http://localhost:3000/hobby", { ...userPreferences, message })
       .then((response) => {
         const result = response.data.result;
         const paragraphs = result.split('\n\n');
@@ -27,9 +30,10 @@ const Form = () => {
       });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setResponse("");
+    setIsLoading(true);
     const userPreferences = {
       budget,
       activityLevel,
@@ -38,13 +42,14 @@ const Form = () => {
       participants,
       type
     };
-    generateHobby(userPreferences);
+    await generateHobby(userPreferences);
+    setIsLoading(false);
   };
 
-  const handleRegenClick = (e) => {
+  const handleRegenClick = async (e) => {
     e.preventDefault();
     setResponse("");
-
+    setIsLoading(true);
     const userPreferences = {
       budget,
       activityLevel,
@@ -56,12 +61,29 @@ const Form = () => {
 
     const newMessage = 'I want a completely different recommendation but still with the same user preferences. The format should be the same. Start your response, the hobby, as a title with a colon after it. In a paragraph below, give a 4 sentence introduction of the hobby. In another paragraph, write me 4 sentences on how to get started with the hobby. There should be 3 line separations, please include \n for the line separations.';
 
-    generateHobby(userPreferences, newMessage)
+    await generateHobby(userPreferences, newMessage);
+    setIsLoading(false);
+  }
+
+  const handleResartClick = (e) => {
+    e.preventDefault();
+    setResponse("");
+    setBudget("");
+    setActivityLevel("");
+    setAvailableTime("");
+    setIndoorOutdoor("");
+    setParticipants("");
+    setType("");
+  }
+
+  const handleSaveClick = (e) => {
+    e.preventDefault();
   }
 
   return (
     <div className="hobby-form">
       <h2>Choose Hobby Preferences</h2>
+      {/* {isLoading && (<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>)} */}
       <form onSubmit={handleSubmit}>
         <div className='grid-container'>
           <div className='grid-item'>
@@ -145,15 +167,22 @@ const Form = () => {
 
         </div>
 
-        <button type="submit" className='button'>Generate Hobby!</button>
+        {!response && !isLoading && (
+          <button type="submit" className='button'>Generate Hobby!</button>
+        )}
+
       </form>
 
-      {response && (
+      {isLoading ? <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div> : response && (
         <div className='response'>
           <h3><strong>{response.title}</strong></h3>
           <p>{response.firstParagraph}</p>
           <p>{response.secondParagraph}</p>
-          <button onClick={handleRegenClick}>Regenerate</button>
+          <div className="response-button-container">
+            <button onClick={handleRegenClick} className='button'>Regenerate</button>
+            <button onClick={handleResartClick} className='button'>Restart</button>
+            <button onClick={handleSaveClick} className='button'>Save</button>
+          </div>
         </div>
       )}
 
