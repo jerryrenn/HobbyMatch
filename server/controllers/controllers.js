@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { OpenAIApi, Configuration } = require('openai');
+const {getHobbiesFromDB} = require('../models/models.js');
 
 const configuration = new Configuration({
   organization: process.env.ORGANIZATION,
@@ -39,5 +40,13 @@ module.exports = {
     }
   },
 
-  getHobbies: (req, res) => {}
+  getHobbies: async (req, res) => {
+    try {
+      const hobbies = await getHobbiesFromDB();
+      res.status(200).json(hobbies);
+    } catch (error) {
+      console.error('Error retrieving hobbies:', error);
+      res.status(500).json({ error: 'Failed to retrieve hobbies' });
+    }
+  }
 }

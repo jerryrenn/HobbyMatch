@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 
-const SavedHobbiesEntry = () => {
+const SavedHobbiesEntry = ({hobby}) => {
 
   return (
-    <div></div>
+    <div>
+      {hobby.title}
+      {hobby.description}
+    </div>
   );
 };
 

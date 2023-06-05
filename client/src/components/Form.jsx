@@ -83,7 +83,6 @@ const Form = () => {
   return (
     <div className="hobby-form">
       <h2>Choose Hobby Preferences</h2>
-      {/* {isLoading && (<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>)} */}
       <form onSubmit={handleSubmit}>
         <div className='grid-container'>
           <div className='grid-item'>
@@ -173,7 +172,7 @@ const Form = () => {
 
       </form>
 
-      {isLoading ? <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div> : response && (
+      {isLoading ? <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div> : response && (
         <div className='response'>
           <h3><strong>{response.title}</strong></h3>
           <p>{response.firstParagraph}</p>
