@@ -1,5 +1,5 @@
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Catamaran', sans-serif;
   background-color: aliceblue;
 }
 
@@ -7,6 +7,8 @@ body {
   width: 60%;
   margin: 0 auto; /* Center the div horizontally */
 }
+
+/*-------------------------  Header and Form -------------------------*/
 
 .header-bar {
   background-color: #92cdfa;
@@ -42,10 +44,14 @@ body {
   margin-top: 20px;
 }
 
+/*-------------------------  Logo -------------------------*/
+
 .logo {
   width: 300px; /* Adjust the width to your desired size */
   height: auto; /* Maintain aspect ratio */
 }
+
+/*-------------------------  response div -------------------------*/
 
 .response {
   display: flex;
@@ -58,8 +64,10 @@ body {
   border: 1px solid #333;
   border-radius: 5px;
 }
+/*-------------------------  buttons -------------------------*/
 
 .button {
+  font-family: 'Catamaran', sans-serif;
   background-color: #92cdfa;
   color: white;
   padding: 10px 20px;
@@ -73,14 +81,36 @@ body {
 .button:hover {
   background-color: #609ee0;
 }
+/*-------------------------  response button container -------------------------*/
 
-.resposne-button-container {
+.response-button-container {
   display: flex;
 }
 
 .response-button-container button {
   margin-right: 10px;
 }
+/*-------------------------  dropdown -------------------------*/
+.dropdown {
+  /* font-family: 'Catamaran', sans-serif; */
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropdown:focus {
+  outline: none;
+  border-color: #92cdfa;
+  box-shadow: 0 0 5px rgba(162, 202, 245, 0.5);
+}
+
+
+
 
 /*-------------------------  spinner -------------------------*/
 .lds-ellipsis {

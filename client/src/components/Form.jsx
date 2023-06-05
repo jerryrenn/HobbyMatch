@@ -89,7 +89,7 @@ const Form = () => {
           <div className='grid-item'>
             <label>
               Weekly Budget:
-              <select required value={budget} onChange={(e) => setBudget(e.target.value)}>
+              <select required className='dropdown' value={budget} onChange={(e) => setBudget(e.target.value)}>
                 <option value="">Select a budget</option>
                 <option value="0">$0</option>
                 <option value="50">$50</option>
@@ -103,7 +103,7 @@ const Form = () => {
           <div className='grid-item'>
             <label>
               Activity Level:
-              <select required value={activityLevel} onChange={(e) => setActivityLevel(e.target.value)}>
+              <select required className='dropdown' value={activityLevel} onChange={(e) => setActivityLevel(e.target.value)}>
                 <option value="">Select your activity level</option>
                 <option value="Sedentary">Sedentary</option>
                 <option value="Lightly Active">Lightly Active</option>
@@ -116,7 +116,7 @@ const Form = () => {
           <div className='grid-item'>
             <label>
               Available Time:
-              <select required value={availableTime} onChange={(e) => setAvailableTime(e.target.value)}>
+              <select required className='dropdown' value={availableTime} onChange={(e) => setAvailableTime(e.target.value)}>
                 <option value="">Select your available time</option>
                 <option value="Less than 1 hour">Less than 1 hour</option>
                 <option value="1-5 hours">1-5 hours</option>
@@ -130,7 +130,7 @@ const Form = () => {
           <div className='grid-item'>
             <label>
               Indoor/Outdoor:
-              <select required value={indoorOutdoor} onChange={(e) => setIndoorOutdoor(e.target.value)}>
+              <select required className='dropdown' value={indoorOutdoor} onChange={(e) => setIndoorOutdoor(e.target.value)}>
                 <option value="">Select your preference</option>
                 <option value="Indoor">Indoor</option>
                 <option value="Outdoor">Outdoor</option>
@@ -142,7 +142,7 @@ const Form = () => {
           <div className='grid-item'>
             <label>
               Participants:
-              <select required value={participants} onChange={(e) => setParticipants(e.target.value)}>
+              <select required className='dropdown' value={participants} onChange={(e) => setParticipants(e.target.value)}>
                 <option value="">Select your preference</option>
                 <option value="Solo">Solo</option>
                 <option value="2-3">2-3</option>
@@ -155,7 +155,7 @@ const Form = () => {
           <div className='grid-item'>
             <label>
               Adventure/Relaxing:
-              <select required value={type} onChange={(e) => setType(e.target.value)}>
+              <select required className='dropdown' value={type} onChange={(e) => setType(e.target.value)}>
                 <option value="">Select your preference</option>
                 <option value="Relaxing">Relaxing</option>
                 <option value="Moderate">Moderate</option>

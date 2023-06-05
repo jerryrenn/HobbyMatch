@@ -11,8 +11,8 @@ const openai = new OpenAIApi(configuration);
 
 module.exports = {
 
-  getHobby: async (req, res) => {
-    console.log('getHobby initiated...');
+  generateHobby: async (req, res) => {
+    console.log('generateHobby initiated...');
     const { budget, activityLevel, availableTime, indoorOutdoor, participants, type} = req.body;
 
     let messages = [
@@ -27,15 +27,17 @@ module.exports = {
       const completion = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages,
-        temperature: 0.8,
+        temperature: 1.0,
         max_tokens: 200,
       });
       const response = completion.data.choices[0].message.content;
       res.json({ result: response });
-      
+
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'An error occurred' });
     }
-  }
+  },
+
+  getHobbies: (req, res) => {}
 }
