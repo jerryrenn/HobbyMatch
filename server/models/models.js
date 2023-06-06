@@ -6,14 +6,14 @@ module.exports = {
   getHobbiesFromDB: async (uid) => {
     try {
       const hobbiesRef = collection(db, 'hobbies');
-      const querySnapshot = await getDocs(
-        query(hobbiesRef, where('uid', '==', uid))
-      );
-      const hobbies = [];
+      const querySnapshot = await getDocs(hobbiesRef);
 
+      const hobbies = [];
       querySnapshot.forEach((doc) => {
         const hobby = doc.data();
-        hobbies.push(hobby);
+        if (doc.id.includes(uid)) {
+          hobbies.push(hobby);
+        }
       });
 
       return hobbies;
@@ -26,7 +26,7 @@ module.exports = {
   saveHobbyToDB: async (hobbyData) => {
     try {
       const docRef = doc(db, 'hobbies', hobbyData.uid);
-      await updateDoc(docRef, { hobbies: arrayUnion(hobbyData) });
+      await setDoc(docRef, { hobbies: arrayUnion(hobbyData) }, { merge: true });
       console.log('Hobby saved successfully');
     } catch (error) {
       console.error('Error saving hobby from models:', error);

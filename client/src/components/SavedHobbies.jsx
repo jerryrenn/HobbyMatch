@@ -11,13 +11,12 @@ const SavedHobbies = ({ uid }) => {
     grabHobbies(uid)
   }, [])
 
-  console.log('what is this new uid: ', uid)
-
   const grabHobbies = async (uid) => {
     try {
       const response = await axios.get(`http://localhost:3000/hobby/${uid}`);
+      console.log('what is this response.data[0].hobbies: ', response.data)
+      console.log('what is this UID: ', uid)
       setHobbies(response.data[0].hobbies);
-      console.log('what does this data look like: ', response.data[0].hobbies)
     } catch (error) {
       console.error("Error retrieving hobbies from SavedHobbies.jsx", error);
     }
