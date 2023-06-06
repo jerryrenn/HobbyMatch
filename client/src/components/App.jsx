@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Form from './Form';
 import logo from '../../../logo5.png';
 import SavedHobbies from './SavedHobbies.jsx';
+import Login from './Login.jsx';
 
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { initializeApp } from "firebase/app";
@@ -60,18 +61,21 @@ export default function App() {
   return (
     <div id="App">
       <div className='header-bar'>
-      <img src={logo} alt="HobbyMatch Logo" className="logo" />
-      {!isAuth && (<button onClick={handleSignIn}>Sign in with Google</button>)}
-      {isAuth && (<button onClick={handleSignOut}>Sign out</button>)}
-      {isAuth && (
-        <button onClick={handleViewSaveClick}>
-          {savedPage ? "Back" : "Saved"}
-        </button>
-      )}
+        <img src={logo} alt="HobbyMatch Logo" className="logo" />
+        <div className="header-buttons-container">
+          {!isAuth && (<button onClick={handleSignIn}>Sign in with Google</button>)}
+          {isAuth && (
+            <button onClick={handleViewSaveClick}>
+              {savedPage ? "Back" : "Saved"}
+            </button>
+          )}
+          {isAuth && (<button onClick={handleSignOut}>Sign out</button>)}
+        </div>
 
       </div>
-      {isAuth && !savedPage && (< Form uid={uid}/>)}
-      {isAuth && savedPage && (< SavedHobbies uid={uid}/>)}
+      {!isAuth && (<Login handleSignIn={handleSignIn}/>)}
+      {isAuth && !savedPage && (< Form uid={uid} />)}
+      {isAuth && savedPage && (< SavedHobbies uid={uid} />)}
     </div>
   );
 }
