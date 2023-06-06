@@ -27,7 +27,7 @@ h1, h2, h3 {
   margin: auto;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align items to the top */
+  align-items: center; /* Align items to the top */
 }
 
 .header-buttons-container {
@@ -103,7 +103,7 @@ h1, h2, h3 {
   transition: background-color 0.3s ease;
   font-size: 15px;
 }
-.loginForm button:hover {
+.loginForm button[type="submit"]:hover {
   background-color: #83b6ec;
 }
 
@@ -115,19 +115,29 @@ h1, h2, h3 {
   width: 50%;
   height: 50px;
   padding: 10px;
-  background-color: #92cdfa;
-  color: #fff;
+  background-color: aliceblue;
+  color: black;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   margin-top: 1vh;
   margin-bottom: 2vh;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   font-size: 15px;
+  font-family: Roboto, sans-serif;
+  border: 1px solid #ccc;
 }
 
 .googleSignInButton:hover {
-  background-color: #83b6ec;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add the box shadow */
+}
+
+
+.googleSignInLogo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
 }
 
 /*-------------------------  Form -------------------------*/

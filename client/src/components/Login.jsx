@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import googleLogo from '../../../googleSignInLogo.png'
 
 const Login = ({ handleSignIn }) => {
 
@@ -10,27 +11,30 @@ const Login = ({ handleSignIn }) => {
 
         <form>
 
-            <label>
-              <input
-                type="email"
-                placeholder="Email"
-              />
-            </label>
+          <label>
+            <input
+              type="email"
+              placeholder="Email"
+            />
+          </label>
 
-            <label>
-              <input
-                type="password"
-                placeholder="Password"
-              />
-            </label>
+          <label>
+            <input
+              type="password"
+              placeholder="Password"
+            />
+          </label>
 
-            <button type="submit">Log In</button>
+          <button type="submit">Log In</button>
 
         </form>
 
-        <hr className='line-break'/>
+        <hr className='line-break' />
 
-        <button onClick={handleSignIn} className='googleSignInButton'>Sign in with Google</button>
+        <button onClick={handleSignIn} className='googleSignInButton'>
+          <img src={googleLogo} alt="Google Sign-In" className="googleSignInLogo" />
+          Sign in with Google
+        </button>
       </div>
 
     </div>
