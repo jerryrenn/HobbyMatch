@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Form from './Form';
-import logo from '../../../hobbyMatch-logo5.png';
+import logo from '../../../logo5.png';
 import SavedHobbies from './SavedHobbies.jsx';
 
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
