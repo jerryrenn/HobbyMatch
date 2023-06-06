@@ -1,4 +1,4 @@
-const { doc, getDoc, setDoc, updateDoc, collection, query, orderBy, getDocs, where, deleteDoc } = require('firebase/firestore')
+const { doc, getDoc, setDoc, updateDoc, collection, query, orderBy, getDocs, where, deleteDoc, arrayUnion } = require('firebase/firestore')
 const db = require('../database');
 
 module.exports = {
@@ -25,8 +25,9 @@ module.exports = {
 
   saveHobbyToDB: async (hobbyData) => {
     try {
-      const docRef = await setDoc(doc(db, 'hobbies', hobbyData.uid), hobbyData);
-      console.log('successfully saved to DB');
+      const docRef = doc(db, 'hobbies', hobbyData.uid);
+      await updateDoc(docRef, { hobbies: arrayUnion(hobbyData) });
+      console.log('Hobby saved successfully');
     } catch (error) {
       console.error('Error saving hobby from models:', error);
     }

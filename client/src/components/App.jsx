@@ -57,21 +57,18 @@ export default function App() {
     setSavedPage(!savedPage);
   }
 
-
-
-  const getAllHobbies = () => {
-    //axios call to localhost
-    //populate a state
-    //pass state down as prop to SavedHobbies
-  }
-
   return (
     <div id="App">
       <div className='header-bar'>
       <img src={logo} alt="HobbyMatch Logo" className="logo" />
       {!isAuth && (<button onClick={handleSignIn}>Sign in with Google</button>)}
       {isAuth && (<button onClick={handleSignOut}>Sign out</button>)}
-      {isAuth && (<button onClick={handleViewSaveClick}>View Saved</button>)}
+      {isAuth && (
+        <button onClick={handleViewSaveClick}>
+          {savedPage ? "Back" : "Saved"}
+        </button>
+      )}
+
       </div>
       {isAuth && !savedPage && (< Form uid={uid}/>)}
       {isAuth && savedPage && (< SavedHobbies uid={uid}/>)}

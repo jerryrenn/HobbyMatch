@@ -11,10 +11,13 @@ const SavedHobbies = ({ uid }) => {
     grabHobbies(uid)
   }, [])
 
+  console.log('what is this new uid: ', uid)
+
   const grabHobbies = async (uid) => {
     try {
       const response = await axios.get(`http://localhost:3000/hobby/${uid}`);
-      setHobbies(response.data);
+      setHobbies(response.data[0].hobbies);
+      console.log('what does this data look like: ', response.data[0].hobbies)
     } catch (error) {
       console.error("Error retrieving hobbies from SavedHobbies.jsx", error);
     }
@@ -22,7 +25,11 @@ const SavedHobbies = ({ uid }) => {
 
   return (
     <div>
-      {hobbies.map((hobby, i) => <SavedHobbiesEntry key={i} hobby={hobby}/>)}
+      {hobbies.length === 0 ? (
+        <p>Generate and Save a Hobby!</p>
+      ) : (
+        hobbies.map((hobby, i) => <SavedHobbiesEntry key={i} hobby={hobby} />)
+      )}
     </div>
 
   );
