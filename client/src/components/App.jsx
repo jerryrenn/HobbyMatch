@@ -63,7 +63,7 @@ export default function App() {
       <div className='header-bar'>
         <img src={logo} alt="HobbyMatch Logo" className="logo" />
         <div className="header-buttons-container">
-          {!isAuth && (<button onClick={handleSignIn}>Sign in with Google</button>)}
+          {/* {!isAuth && (<button onClick={handleSignIn}>Sign in with Google</button>)} */}
           {isAuth && (
             <button onClick={handleViewSaveClick}>
               {savedPage ? "Back" : "Saved"}

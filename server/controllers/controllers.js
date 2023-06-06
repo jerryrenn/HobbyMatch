@@ -29,7 +29,7 @@ module.exports = {
         model: 'gpt-3.5-turbo',
         messages,
         temperature: 1.0,
-        max_tokens: 200,
+        max_tokens: 400,
       });
       const response = completion.data.choices[0].message.content;
       res.json({ result: response });
