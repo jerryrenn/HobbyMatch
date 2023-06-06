@@ -11,7 +11,7 @@ async function performChatCompletion() {
   const completion = await openai.createChatCompletion({
     model: 'gpt-3.5-turbo',
     messages: [
-      { role: 'user', content: 'hello world' }
+      { role: 'user', content: 'please work' }
     ]
   });
   console.log(completion.data.choices[0].message);
