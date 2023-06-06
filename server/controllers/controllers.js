@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { OpenAIApi, Configuration } = require('openai');
-const {getHobbiesFromDB, saveHobbyToDB} = require('../models/models.js');
+const {getHobbiesFromDB, saveHobbyToDB, deleteHobbyFromDB} = require('../models/models.js');
 
 const configuration = new Configuration({
   organization: process.env.ORGANIZATION,
@@ -59,6 +59,18 @@ module.exports = {
     } catch (error) {
       console.error('Error saving hobby:', error);
       res.status(500).json({ error: 'Failed to save hobby from controller' });
+    }
+  },
+
+  deleteHobby: async (req, res) => {
+    const { uid, title } = req.params;
+
+    try {
+      await deleteHobbyFromDB(uid, title);
+      res.status(200).send('Hobby deleted successfully');
+    } catch (error) {
+      console.error('Error deleting hobby from controller:', error);
+      res.status(500).send('Failed to delete hobby');
     }
   }
 }

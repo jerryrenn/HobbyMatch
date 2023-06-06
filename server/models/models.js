@@ -31,6 +31,26 @@ module.exports = {
     } catch (error) {
       console.error('Error saving hobby from models:', error);
     }
-  }
+  },
 
+  deleteHobbyFromDB: async(uid, hobbyTitle) => {
+    try {
+      const hobbyDocRef = doc(db, "hobbies", uid);
+      const hobbyDocSnap = await getDoc(hobbyDocRef);
+
+      if (!hobbyDocSnap.exists()) {
+        throw new Error("Hobby not found from models");
+      }
+
+      const hobbyData = hobbyDocSnap.data();
+      const updatedHobbies = hobbyData.hobbies.filter((hobby) => !hobby.title.includes(hobbyTitle));
+
+      await setDoc(hobbyDocRef, { hobbies: updatedHobbies });
+
+      console.log("Hobby deleted successfully");
+    } catch (error) {
+      console.error("Error deleting hobby from models:", error);
+      throw error;
+    }
+  }
 }

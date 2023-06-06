@@ -30,7 +30,7 @@ export default function App() {
         const user = result.user;
         const uid = user.uid
         setuid(uid);
-        console.log("User:", user);
+        // console.log("User:", user);
         setIsAuth(!isAuth);
       })
       .catch((error) => {
