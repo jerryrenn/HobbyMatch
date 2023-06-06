@@ -16,7 +16,7 @@ const SavedHobbiesEntry = ({hobby, uid, filterHobbies}) => {
     <div className="hobbyEntry">
       <h2 className="hobbyEntryTitle">{hobby.title}</h2>
       <p className="hobbyEntryDescription">{hobby.description}</p>
-      <button onClick={handleDeleteClick}>Delete Hobby</button>
+      <button onClick={handleDeleteClick} className='button'>Delete Hobby</button>
     </div>
   );
 };

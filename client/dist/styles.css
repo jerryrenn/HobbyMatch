@@ -46,14 +46,27 @@ h1, h2, h3 {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header-buttons-container button:hover {
-  background-color: #83b6ec;
+  background-color: #8bc3ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-buttons-container button:active {
+  background-color: #e3e3e3; /* Update the background color when the button is clicked */
 }
 
 /*-------------------------  Login Page Form -------------------------*/
+
+.login-header {
+  text-align: left;
+  margin-left: 20px; /* Adjust the left margin value as needed */
+  margin-top: 10px; /* Adjust the top margin value as needed */
+  margin-bottom: 1px; /* Adjust the bottom margin value as needed */
+  color: black;
+}
 
 .loginForm {
   border: 1px solid #ccc; /* Add a border to the loginForm div */
@@ -61,6 +74,7 @@ h1, h2, h3 {
   width: 40%; /* Set the width of the loginForm div */
   margin-left: auto;
   margin-right: auto;
+  margin-top: 5vh;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add the box shadow */
 }
@@ -85,12 +99,12 @@ h1, h2, h3 {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  margin-top: 1vh;
+  /* margin-top: 1vh; */
   font-size: 15px;
 }
 
 .loginForm button[type="submit"] {
-  width: 85%;
+  width: 93%;
   height: 50px;
   padding: 10px;
   background-color: #92cdfa;
@@ -100,15 +114,33 @@ h1, h2, h3 {
   cursor: pointer;
   margin-top: 2vh;
   margin-bottom: 1vh;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   font-size: 15px;
 }
+
 .loginForm button[type="submit"]:hover {
-  background-color: #83b6ec;
+  background-color: #8bc3ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add the box shadow */
 }
 
+
 .line-break {
-  width: 50%; /* Adjust the width value as desired */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1vh auto;
+  width: 93%;
+}
+
+.line-break .line {
+  flex-grow: 1;
+  border-top: 1px solid #ccc;
+  width: 50%; /* Adjust the width value to your desired length */
+}
+
+.or-text {
+  margin: 0 10px;
+  color: #888;
 }
 
 .googleSignInButton {
@@ -129,7 +161,10 @@ h1, h2, h3 {
 }
 
 .googleSignInButton:hover {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add the box shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.googleSignInButton:active {
+  background-color: #e3e3e3; /* Update the background color when the button is clicked */
 }
 
 
@@ -170,8 +205,8 @@ h1, h2, h3 {
 /*-------------------------  Logo -------------------------*/
 
 .logo {
-  width: 300px; /* Adjust the width to your desired size */
-  height: auto; /* Maintain aspect ratio */
+  width: 300px;
+  height: auto;
 }
 
 /*-------------------------  response div -------------------------*/
@@ -198,11 +233,16 @@ h1, h2, h3 {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button:hover {
-  background-color: #83b6ec;
+  background-color: #8bc3ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  background-color: #e3e3e3; /* Update the background color when the button is clicked */
 }
 /*-------------------------  response button container -------------------------*/
 
@@ -233,12 +273,17 @@ h1, h2, h3 {
   box-shadow: 0 0 5px rgba(162, 202, 245, 0.5);
 }
 
+
+
 /*-------------------------  HobbyEntry -------------------------*/
 .hobbyEntry {
-  margin-bottom: 20px;
+  width: 100%;
+  margin-top: 20px;
   padding: 10px;
-  background-color: #f5f5f5;
+  background-color: aliceblue;
   border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .hobbyEntryTitle {
