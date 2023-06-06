@@ -9,7 +9,7 @@ import { initializeApp } from "firebase/app";
 export default function App() {
   const [isAuth, setIsAuth] = useState(false);
   const [savedPage, setSavedPage] = useState(false);
-  // const [uid, setuid] = useState('');
+  const [uid, setuid] = useState('');
 
   const firebaseConfig = {
     apiKey: 'AIzaSyA4yA_YmGFIIzZm_ChTKpqEPvxN4KHUUkA',
@@ -28,8 +28,8 @@ export default function App() {
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
-        // const uid = user.uid
-        // setuid(uid);
+        const uid = user.uid
+        setuid(uid);
         console.log("User:", user);
         setIsAuth(!isAuth);
       })
@@ -73,8 +73,8 @@ export default function App() {
       {isAuth && (<button onClick={handleSignOut}>Sign out</button>)}
       {isAuth && (<button onClick={handleViewSaveClick}>View Saved</button>)}
       </div>
-      {isAuth && !savedPage && (< Form />)}
-      {isAuth && savedPage && (< SavedHobbies />)}
+      {isAuth && !savedPage && (< Form uid={uid}/>)}
+      {isAuth && savedPage && (< SavedHobbies uid={uid}/>)}
     </div>
   );
 }

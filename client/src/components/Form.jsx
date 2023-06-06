@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-const Form = () => {
+const Form = ({uid}) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [budget, setBudget] = useState("");
@@ -76,9 +76,26 @@ const Form = () => {
     setType("");
   }
 
-  const handleSaveClick = (e) => {
+  const handleSaveClick = async (e) => {
     e.preventDefault();
-  }
+    const description = response.firstParagraph + response.secondParagraph;
+    const title = response.title;
+
+    const hobbyData = {
+      title: title,
+      description: description,
+      uid: uid
+    };
+
+    try {
+      console.log(hobbyData);
+      await axios.post('http://localhost:3000/saveHobby', hobbyData);
+      // Handle success or any additional logic after successful hobby save
+    } catch (error) {
+      console.error('Error saving hobby from form.jsx:', error);
+      // Handle error or display error message to the user
+    }
+  };
 
   return (
     <div className="hobby-form">

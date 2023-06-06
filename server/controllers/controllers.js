@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { OpenAIApi, Configuration } = require('openai');
-const {getHobbiesFromDB} = require('../models/models.js');
+const {getHobbiesFromDB, saveHobbyToDB} = require('../models/models.js');
 
 const configuration = new Configuration({
   organization: process.env.ORGANIZATION,
@@ -41,12 +41,24 @@ module.exports = {
   },
 
   getHobbies: async (req, res) => {
+    const { uid } = req.params;
     try {
-      const hobbies = await getHobbiesFromDB();
+      const hobbies = await getHobbiesFromDB(uid);
       res.status(200).json(hobbies);
     } catch (error) {
-      console.error('Error retrieving hobbies:', error);
+      console.error('Error retrieving hobbies from controllers:', error);
       res.status(500).json({ error: 'Failed to retrieve hobbies' });
+    }
+  },
+
+  saveHobby: async (req, res) => {
+    try {
+      await saveHobbyToDB(req.body);
+
+      res.status(200).json({ message: 'Hobby saved successfully' });
+    } catch (error) {
+      console.error('Error saving hobby:', error);
+      res.status(500).json({ error: 'Failed to save hobby from controller' });
     }
   }
 }

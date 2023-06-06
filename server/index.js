@@ -2,7 +2,7 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
-const { generateHobby, getHobbies } = require('./controllers/controllers.js')
+const { generateHobby, getHobbies, saveHobby } = require('./controllers/controllers.js')
 
 
 const app = express();
@@ -20,7 +20,8 @@ const router = express.Router();
 app.use(router);
 
 router.post('/hobby', generateHobby)
-router.get('/hobby', getHobbies)
+router.get('/hobby/:uid', getHobbies)
+router.post('/saveHobby', saveHobby)
 
 
 
