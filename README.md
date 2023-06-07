@@ -71,4 +71,4 @@ credit @[jerryrenn](https://github.com/jerryrenn)
 
 ## Wins and Improvements
 
-Successfully developing a full-stack application while learning Google Firestore DB and Firebase Authentication within a timebox of 3 days was a notable accomplishment. In addition, using vanilla CSS to produce a visually appealing and web accessible application without frameworks helped refine my CSS capabilities. Although the application currently lacks mobile compatibility, an area for further optimization and improvement would involve recreating the application using React Native.
+Successfully developing a full-stack application while learning Google Firestore DB and Firebase Authentication within a timebox of 3 days was a notable accomplishment. In addition, using vanilla CSS to produce a visually appealing and web accessible application without frameworks helped refine my CSS capabilities. An area for further optimization and improvement would involve recreating the application using React Native.
