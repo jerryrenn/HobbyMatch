@@ -19,7 +19,7 @@ h1, h2, h3 {
 .landingPage {
   display: grid;
   grid-template-columns: 3fr 2fr; /* Divide the container into two equal columns */
-  grid-gap: 20px; /* Add a gap of 20 pixels between the columns */
+  grid-gap: 20px;
 }
 
 .leftSide {
@@ -37,22 +37,22 @@ h1, h2, h3 {
   background-color: #92cdfa;
   color: white;
   padding: 10px;
-  text-align: right; /* Right align the content */
+  text-align: right;
   width: 100%;
   margin: auto;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Align items to the top */
+  align-items: center;
 }
 
 .header-buttons-container {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Right align the buttons */
+  justify-content: flex-end;
 }
 
 .header-buttons-container button {
-  margin-left: 10px; /* Add some spacing between buttons */
+  margin-left: 10px;
   font-family: 'Catamaran', sans-serif;
   background-color: #92cdfa;
   color: aliceblue;
@@ -70,7 +70,7 @@ h1, h2, h3 {
 }
 
 .header-buttons-container button:active {
-  background-color: #e3e3e3; /* Update the background color when the button is clicked */
+  background-color: #e3e3e3;
 }
 
 /*-------------------------  Login Page Form -------------------------*/
@@ -135,7 +135,7 @@ h1, h2, h3 {
 
 .loginForm button[type="submit"]:hover {
   background-color: #8bc3ff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add the box shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -150,7 +150,7 @@ h1, h2, h3 {
 .line-break .line {
   flex-grow: 1;
   border-top: 1px solid #ccc;
-  width: 50%; /* Adjust the width value to your desired length */
+  width: 50%;
 }
 
 .or-text {
@@ -179,7 +179,7 @@ h1, h2, h3 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .googleSignInButton:active {
-  background-color: #e3e3e3; /* Update the background color when the button is clicked */
+  background-color: #e3e3e3;
 }
 
 
@@ -260,7 +260,7 @@ h1, h2, h3 {
 }
 
 .button:active {
-  background-color: #e3e3e3; /* Update the background color when the button is clicked */
+  background-color: #e3e3e3; 
 }
 /*-------------------------  response button container -------------------------*/
 
