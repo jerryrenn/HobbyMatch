@@ -10,6 +10,7 @@ const Form = ({ uid, grabHobbies }) => {
   const [indoorOutdoor, setIndoorOutdoor] = useState("");
   const [participants, setParticipants] = useState("");
   const [type, setType] = useState("");
+  const [considerations, setConsiderations] = useState("")
   const [response, setResponse] = useState("");
 
   const generateHobby = (userPreferences, message) => {
@@ -38,7 +39,8 @@ const Form = ({ uid, grabHobbies }) => {
       availableTime,
       indoorOutdoor,
       participants,
-      type
+      type,
+      considerations
     };
     await generateHobby(userPreferences);
     setIsLoading(false);
@@ -54,7 +56,8 @@ const Form = ({ uid, grabHobbies }) => {
       availableTime,
       indoorOutdoor,
       participants,
-      type
+      type,
+      considerations
     };
 
     const newMessage = 'I want a completely different recommendation but still with the same user preferences. The format should be the same. Start your response, the hobby, as a title with a colon after it. In a paragraph below, give a 4 sentence introduction of the hobby. In another paragraph, write me 4 sentences on how to get started with the hobby. There should be 3 line separations, please include \n for the line separations.';
@@ -72,6 +75,7 @@ const Form = ({ uid, grabHobbies }) => {
     setIndoorOutdoor("");
     setParticipants("");
     setType("");
+    setConsiderations("")
   }
 
   const handleSaveClick = async (e) => {
@@ -180,6 +184,16 @@ const Form = ({ uid, grabHobbies }) => {
             </label>
           </div>
 
+        </div>
+        <div className='consideration-text-field'>
+          <label>
+            <span className='pref-title'>Other Considerations? 📝</span>
+            <input
+              type="considerations"
+              placeholder="I'm scared of heights!"
+              onChange={(e) => setConsiderations(e.target.value)}
+            />
+          </label>
         </div>
 
         {!response && !isLoading && (

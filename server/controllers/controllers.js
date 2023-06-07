@@ -13,12 +13,12 @@ const openai = new OpenAIApi(configuration);
 module.exports = {
 
   generateHobby: async (req, res) => {
-    console.log('generateHobby initiated...');
-    const { budget, activityLevel, availableTime, indoorOutdoor, participants, type} = req.body;
+    console.log('generateHobby initiated...', req.body);
+    const { budget, activityLevel, availableTime, indoorOutdoor, participants, type, considerations} = req.body;
 
     let messages = [
       { role: 'system', content: 'You are an article writer, that generates interesting and unqiue hobbies based on user preferences' },
-      { role: 'user', content: `I need you to generate a random hobby based on my preferences, it can be literally any hobby you can think of. Be creative! I have a budget of ${budget} & "${availableTime} a week. I am ${activityLevel}.  I want the recommendation to be an ${indoorOutdoor} activity. The activity should include ${participants} participants and should be ${type}. Don't be boring and recommend rock climbing or gardening, think outside the box! I want the response to be comprised of a title and 2 paragraphs, each separated by paragraph indentations. Start your response with just the hobby as a title with a colon after it. Indent a paragraph, and then in a paragraph below, give a 4 sentence introduction of the hobby. Indent another paragraphj, and then in another paragraph below, write me 4 sentences on how to get started with the hobby. There should be 3 line separations, please include \n for the line separations."` },
+      { role: 'user', content: `I need you to generate a random hobby based on my preferences, it can be literally any hobby you can think of. Be creative! I have a budget of ${budget} & "${availableTime} a week. I am ${activityLevel}.  I want the recommendation to be an ${indoorOutdoor} activity. The activity should include ${participants} participants and should be ${type}. Other considerations include ${considerations}. Don't be boring and recommend rock climbing or gardening, think outside the box! I want the response to be comprised of a title and 2 paragraphs, each separated by paragraph indentations. Start your response with just the hobby as a title with a colon after it. Indent a paragraph, and then in a paragraph below, give a 4 sentence introduction of the hobby. Indent another paragraph, and then in another paragraph below, write me 4 sentences on how to get started with the hobby. There should be 3 line separations, please include \n for the line separations."` },
     ];
 
     try {

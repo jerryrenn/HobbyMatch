@@ -220,6 +220,39 @@ h1, h2, h3 {
   font-size: 18px;
 }
 
+.dropdown {
+  /* font-family: 'Catamaran', sans-serif; */
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropdown:focus {
+  outline: none;
+  border-color: #92cdfa;
+  box-shadow: 0 0 5px rgba(162, 202, 245, 0.5);
+}
+
+.consideration-text-field {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vh;
+}
+.consideration-text-field input {
+  display: block;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 14px;
+  width: 98%;
+}
+
 /*-------------------------  Logo -------------------------*/
 
 .logo {
@@ -260,7 +293,7 @@ h1, h2, h3 {
 }
 
 .button:active {
-  background-color: #e3e3e3; 
+  background-color: #e3e3e3;
 }
 /*-------------------------  response button container -------------------------*/
 
@@ -271,26 +304,6 @@ h1, h2, h3 {
 .response-button-container button {
   margin-right: 10px;
 }
-
-/*-------------------------  dropdown -------------------------*/
-.dropdown {
-  /* font-family: 'Catamaran', sans-serif; */
-  appearance: none;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 8px;
-  font-size: 14px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.dropdown:focus {
-  outline: none;
-  border-color: #92cdfa;
-  box-shadow: 0 0 5px rgba(162, 202, 245, 0.5);
-}
-
 
 
 /*-------------------------  HobbyEntry -------------------------*/
