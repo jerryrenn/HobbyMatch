@@ -1,6 +1,6 @@
 # HobbyMatch
 
-Find The Perfect Hobby ⚽
+ ⚽ Find The Perfect Hobby ⚽
 
 Struggling to find something to do? HobbyMatch is perfect for you! Discover your passion and explore new hobbies with my interactive AI generated hobby recommender. Get personalized hobby recommendations tailored to your interests and preferences. From adventurous outdoor activities to creative indoor pursuits, our platform helps you find the perfect hobby to enrich your life. Start your journey today and unlock a world of endless possibilities!
 
