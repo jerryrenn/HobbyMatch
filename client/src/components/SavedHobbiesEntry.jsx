@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-const SavedHobbiesEntry = ({hobby, uid, filterHobbies}) => {
+const SavedHobbiesEntry = ({ hobby, uid, filterHobbies }) => {
 
   const handleDeleteClick = async () => {
     try {

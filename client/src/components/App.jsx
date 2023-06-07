@@ -44,12 +44,10 @@ export default function App() {
         const user = result.user;
         const uid = user.uid
         setuid(uid);
-        // console.log("User:", user);
         setIsAuth(!isAuth);
         grabHobbies(uid)
       })
       .catch((error) => {
-        // Handle sign-in errors
         console.error("Google Sign-In Error:", error);
       });
   };
@@ -75,25 +73,23 @@ export default function App() {
     setHobbies(filteredHobbies);
   }
 
-
   return (
     <div id="App">
       <div className='header-bar'>
         <img src={logo} alt="HobbyMatch Logo" className="logo" />
         <div className="header-buttons-container">
-          {/* {!isAuth && (<button onClick={handleSignIn}>Sign in with Google</button>)} */}
           {isAuth && (
             <button onClick={handleViewSaveClick}>
               {savedPage ? "Back" : "Saved"}
             </button>
           )}
+
           {isAuth && (<button onClick={handleSignOut}>Sign out</button>)}
         </div>
-
       </div>
-      {!isAuth && (<Login handleSignIn={handleSignIn}/>)}
-      {isAuth && !savedPage && (< Form uid={uid} />)}
-      {isAuth && savedPage && (< SavedHobbies uid={uid} hobbies={hobbies} filterHobbies={filterHobbies}/>)}
+      {!isAuth && (<Login handleSignIn={handleSignIn} />)}
+      {isAuth && !savedPage && (< Form uid={uid} grabHobbies={grabHobbies} />)}
+      {isAuth && savedPage && (< SavedHobbies uid={uid} hobbies={hobbies} filterHobbies={filterHobbies} />)}
     </div>
   );
 }

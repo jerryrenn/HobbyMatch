@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-const Form = ({uid}) => {
+const Form = ({ uid, grabHobbies }) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [budget, setBudget] = useState("");
@@ -88,6 +88,7 @@ const Form = ({uid}) => {
     try {
       console.log(hobbyData);
       await axios.post('http://localhost:3000/saveHobby', hobbyData);
+      grabHobbies(uid);
       // Handle success or any additional logic after successful hobby save
     } catch (error) {
       console.error('Error saving hobby from form.jsx:', error);
@@ -116,7 +117,7 @@ const Form = ({uid}) => {
 
           <div className='grid-item'>
             <label>
-            <span className='pref-title'>Activity Level 🏃‍♂️</span>
+              <span className='pref-title'>Activity Level 🏃‍♂️</span>
               <select required className='dropdown' value={activityLevel} onChange={(e) => setActivityLevel(e.target.value)}>
                 <option value="">Select your activity level</option>
                 <option value="Sedentary">Sedentary</option>
@@ -155,7 +156,7 @@ const Form = ({uid}) => {
 
           <div className='grid-item'>
             <label>
-            <span className='pref-title'>Participants 👪</span>
+              <span className='pref-title'>Participants 👪</span>
               <select required className='dropdown' value={participants} onChange={(e) => setParticipants(e.target.value)}>
                 <option value="">Select # of participants</option>
                 <option value="Solo">Solo</option>
@@ -168,7 +169,7 @@ const Form = ({uid}) => {
 
           <div className='grid-item'>
             <label>
-            <span className='pref-title'>Adventurous/Relaxing ⛱️</span>
+              <span className='pref-title'>Adventurous/Relaxing ⛱️</span>
               <select required className='dropdown' value={type} onChange={(e) => setType(e.target.value)}>
                 <option value="">Select your preference</option>
                 <option value="Relaxing">Relaxing</option>
