@@ -3,6 +3,7 @@ import Form from './Form';
 import logo from '../../../logo5.png';
 import SavedHobbies from './SavedHobbies.jsx';
 import Login from './Login.jsx';
+import axios from 'axios';
 
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { initializeApp } from "firebase/app";
@@ -11,6 +12,18 @@ export default function App() {
   const [isAuth, setIsAuth] = useState(false);
   const [savedPage, setSavedPage] = useState(false);
   const [uid, setuid] = useState('');
+  const [hobbies, setHobbies] = useState([]);
+
+  const grabHobbies = async (uid) => {
+    try {
+      const response = await axios.get(`http://localhost:3000/hobby/${uid}`);
+      // console.log('what is this response.data[0].hobbies: ', response.data)
+      // console.log('what is this UID: ', uid)
+      setHobbies(response.data[0].hobbies);
+    } catch (error) {
+      console.error("Error retrieving hobbies from SavedHobbies.jsx", error);
+    }
+  };
 
   const firebaseConfig = {
     apiKey: 'AIzaSyA4yA_YmGFIIzZm_ChTKpqEPvxN4KHUUkA',
@@ -33,6 +46,7 @@ export default function App() {
         setuid(uid);
         // console.log("User:", user);
         setIsAuth(!isAuth);
+        grabHobbies(uid)
       })
       .catch((error) => {
         // Handle sign-in errors
@@ -43,13 +57,10 @@ export default function App() {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        // User signed out successfully
         console.log("User signed out");
         setIsAuth(!isAuth);
-        // Implement any additional sign-out logic here
       })
       .catch((error) => {
-        // Handle sign-out errors
         console.error("Sign-Out Error:", error);
       });
   };
@@ -57,6 +68,13 @@ export default function App() {
   const handleViewSaveClick = () => {
     setSavedPage(!savedPage);
   }
+
+  const filterHobbies = (title) => {
+    let newHobbies = hobbies.slice()
+    let filteredHobbies = newHobbies.filter((hobby) => !hobby.title.includes(title));
+    setHobbies(filteredHobbies);
+  }
+
 
   return (
     <div id="App">
@@ -75,7 +93,7 @@ export default function App() {
       </div>
       {!isAuth && (<Login handleSignIn={handleSignIn}/>)}
       {isAuth && !savedPage && (< Form uid={uid} />)}
-      {isAuth && savedPage && (< SavedHobbies uid={uid} />)}
+      {isAuth && savedPage && (< SavedHobbies uid={uid} hobbies={hobbies} filterHobbies={filterHobbies}/>)}
     </div>
   );
 }

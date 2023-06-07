@@ -12,8 +12,6 @@ const Form = ({uid}) => {
   const [type, setType] = useState("");
   const [response, setResponse] = useState("");
 
-
-
   const generateHobby = (userPreferences, message) => {
     return axios.post("http://localhost:3000/hobby", { ...userPreferences, message })
       .then((response) => {
@@ -99,12 +97,12 @@ const Form = ({uid}) => {
 
   return (
     <div className="hobby-form">
-      <h2>Choose Hobby Preferences</h2>
+      <h1>Choose Hobby Preferences</h1>
       <form onSubmit={handleSubmit}>
         <div className='grid-container'>
           <div className='grid-item'>
             <label>
-              Weekly Budget:
+              <span className='pref-title'>Weekly Budget 💵</span>
               <select required className='dropdown' value={budget} onChange={(e) => setBudget(e.target.value)}>
                 <option value="">Select a budget</option>
                 <option value="0">$0</option>
@@ -118,7 +116,7 @@ const Form = ({uid}) => {
 
           <div className='grid-item'>
             <label>
-              Activity Level:
+            <span className='pref-title'>Activity Level 🏃‍♂️</span>
               <select required className='dropdown' value={activityLevel} onChange={(e) => setActivityLevel(e.target.value)}>
                 <option value="">Select your activity level</option>
                 <option value="Sedentary">Sedentary</option>
@@ -131,9 +129,9 @@ const Form = ({uid}) => {
 
           <div className='grid-item'>
             <label>
-              Available Time:
+              <span className='pref-title'>Available Time ⏱️</span>
               <select required className='dropdown' value={availableTime} onChange={(e) => setAvailableTime(e.target.value)}>
-                <option value="">Select your available time</option>
+                <option value="">Select available weekly time</option>
                 <option value="Less than 1 hour">Less than 1 hour</option>
                 <option value="1-5 hours">1-5 hours</option>
                 <option value="5-10 hours">5-10 hours</option>
@@ -145,7 +143,7 @@ const Form = ({uid}) => {
 
           <div className='grid-item'>
             <label>
-              Indoor/Outdoor:
+              <span className='pref-title'>Indoor/Outdoor ☀️</span>
               <select required className='dropdown' value={indoorOutdoor} onChange={(e) => setIndoorOutdoor(e.target.value)}>
                 <option value="">Select your preference</option>
                 <option value="Indoor">Indoor</option>
@@ -157,9 +155,9 @@ const Form = ({uid}) => {
 
           <div className='grid-item'>
             <label>
-              Participants:
+            <span className='pref-title'>Participants 👪</span>
               <select required className='dropdown' value={participants} onChange={(e) => setParticipants(e.target.value)}>
-                <option value="">Select your preference</option>
+                <option value="">Select # of participants</option>
                 <option value="Solo">Solo</option>
                 <option value="2-3">2-3</option>
                 <option value="3-4">3-4</option>
@@ -170,7 +168,7 @@ const Form = ({uid}) => {
 
           <div className='grid-item'>
             <label>
-              Adventure/Relaxing:
+            <span className='pref-title'>Adventurous/Relaxing ⛱️</span>
               <select required className='dropdown' value={type} onChange={(e) => setType(e.target.value)}>
                 <option value="">Select your preference</option>
                 <option value="Relaxing">Relaxing</option>

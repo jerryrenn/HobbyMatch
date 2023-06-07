@@ -1,32 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
 import SavedHobbiesEntry from './SavedHobbiesEntry';
 
 
-const SavedHobbies = ({ uid }) => {
+const SavedHobbies = ({ uid, hobbies, filterHobbies }) => {
   {/* grab prop, and then map through prop, and display in SavedHobbiesEntry */}
-  const [hobbies, setHobbies] = useState([]);
 
-  useEffect(() => {
-    grabHobbies(uid)
-  }, [])
-
-  const filterHobbies = (title) => {
-    let newHobbies = hobbies.slice()
-    let filteredHobbies = newHobbies.filter((hobby) => !hobby.title.includes(title));
-    setHobbies(filteredHobbies);
-  }
-
-  const grabHobbies = async (uid) => {
-    try {
-      const response = await axios.get(`http://localhost:3000/hobby/${uid}`);
-      // console.log('what is this response.data[0].hobbies: ', response.data)
-      // console.log('what is this UID: ', uid)
-      setHobbies(response.data[0].hobbies);
-    } catch (error) {
-      console.error("Error retrieving hobbies from SavedHobbies.jsx", error);
-    }
-  };
 
   return (
     <div>
