@@ -5,7 +5,7 @@ import SavedHobbies from './SavedHobbies.jsx';
 import Login from './Login.jsx';
 import axios from 'axios';
 
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, createUserWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 
 export default function App() {
@@ -52,6 +52,21 @@ export default function App() {
       });
   };
 
+  const handleSignInWithEmail = (e, email, password) => {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        const uid = user.uid;
+        setuid(uid);
+        setIsAuth(!isAuth);
+        grabHobbies(uid)
+      })
+      .catch((error) => {
+        console.error("Email Sign-Up Error:", error);
+      });
+  }
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -87,7 +102,7 @@ export default function App() {
           {isAuth && (<button onClick={handleSignOut}>Sign out</button>)}
         </div>
       </div>
-      {!isAuth && (<Login handleSignIn={handleSignIn} />)}
+      {!isAuth && (<Login handleSignIn={handleSignIn} handleSignInWithEmail={handleSignInWithEmail}/>)}
       {isAuth && !savedPage && (< Form uid={uid} grabHobbies={grabHobbies} />)}
       {isAuth && savedPage && (< SavedHobbies uid={uid} hobbies={hobbies} filterHobbies={filterHobbies} />)}
     </div>

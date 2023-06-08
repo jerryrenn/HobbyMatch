@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import googleLogo from '../../../googleSignInLogo.png'
 
-const Login = ({ handleSignIn }) => {
+const Login = ({ handleSignIn, handleSignInWithEmail }) => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('')
 
   return (
     <div className="landingPage">
@@ -14,12 +17,13 @@ const Login = ({ handleSignIn }) => {
       <div className='rightSide'>
         <div className='loginForm'>
           <h3 className='login-header'>👏 Welcome 👏</h3>
-          <form>
+          <form onSubmit={(e) => handleSignInWithEmail(e, email, password)}>
 
             <label>
               <input
                 type="email"
                 placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </label>
 
@@ -27,6 +31,7 @@ const Login = ({ handleSignIn }) => {
               <input
                 type="password"
                 placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </label>
 
