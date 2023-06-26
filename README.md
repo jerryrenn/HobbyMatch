@@ -19,7 +19,7 @@ Struggling to find something to do? HobbyMatch is perfect for you! Discover your
 ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/-Express.js-000000?style=flat-square&logo=express&logoColor=white)
 ![Google Firestore](https://img.shields.io/badge/-Google%20Firestore-FFCA28?style=flat-square&logo=firebase&logoColor=white)
-[Google Firebase Authentication](https://img.shields.io/badge/-Google%20Firebase%20Authentication-FFCA28?style=flat-square&logo=firebase&logoColor=white)
+![Google Firebase Authentication](https://img.shields.io/badge/-Google%20Firebase%20Authentication-FFCA28?style=flat-square&logo=firebase&logoColor=white)
 
 ## Visuals
 
