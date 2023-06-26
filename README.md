@@ -15,11 +15,11 @@ Struggling to find something to do? HobbyMatch is perfect for you! Discover your
 
 ## Technologies
 
-- [React](https://react.dev/)
-- [Node.js](https://nodejs.org/)
-- [Express.js](https://expressjs.com/)
-- [Google Firestore](https://firebase.google.com/)
-- [Google Firebase Authentication](https://firebase.google.com/)
+![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=white)
+![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/-Express.js-000000?style=flat-square&logo=express&logoColor=white)
+![Google Firestore](https://img.shields.io/badge/-Google%20Firestore-FFCA28?style=flat-square&logo=firebase&logoColor=white)
+[Google Firebase Authentication](https://img.shields.io/badge/-Google%20Firebase%20Authentication-FFCA28?style=flat-square&logo=firebase&logoColor=white)
 
 ## Visuals
 
